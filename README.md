@@ -1,3 +1,35 @@
+# NLP Sandbox Elastic stack (ELK)
+
+<!-- [![GitHub CI](https://img.shields.io/github/workflow/status/Sage-Bionetworks/nlp-sandbox-elk/ci.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/Sage-Bionetworks/nlp-sandbox-elk) -->
+[![GitHub License](https://img.shields.io/github/license/Sage-Bionetworks/nlp-sandbox-elk.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/Sage-Bionetworks/nlp-sandbox-elk)
+
+## Specification
+
+- Centralize the logs generated on a Data Hosting Site by these components:
+  - Orchestrator
+  - Data Nodes
+  - NLP Tools
+
+### Running with Docker
+
+    $ docker-compose up -d
+    $ docker ps
+    $ docker ps
+    CONTAINER ID        IMAGE                           COMMAND                  CREATED             STATUS              PORTS                                                                              NAMES
+    b21e05018a0b        nlp-sandbox-elk_kibana          "/usr/local/bin/dumb…"   13 minutes ago      Up 43 seconds       0.0.0.0:5601->5601/tcp                                                             nlp-sandbox-elk_kibana_1
+    348f2a24021e        nlp-sandbox-elk_logstash        "/usr/local/bin/dock…"   13 minutes ago      Up 43 seconds       0.0.0.0:5000->5000/tcp, 0.0.0.0:9600->9600/tcp, 0.0.0.0:5000->5000/udp, 5044/tcp   nlp-sandbox-elk_logstash_1
+    cdcc25dca8cb        nlp-sandbox-elk_elasticsearch   "/tini -- /usr/local…"   13 minutes ago      Up 44 seconds       0.0.0.0:9200->9200/tcp, 0.0.0.0:9300->9300/tcp                                     nlp-sandbox-elk_elasticsearch_1
+
+Everything is already pre-configured with a privileged username and password:
+
+- user: elastic
+- password: changeme
+
+Access Kibana by entering: http://localhost:5601 in your browser.
+
+
+
+
 # Elastic stack (ELK) on Docker
 
 [![Join the chat at https://gitter.im/deviantony/docker-elk](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/deviantony/docker-elk?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
