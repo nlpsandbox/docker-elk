@@ -68,6 +68,24 @@ services:
     depends_on:
       - elasticsearch
 
+  nginx:
+    build:
+      context: nginx
+      dockerfile: Dockerfile
+    container_name: nginx
+    restart: always
+    environment:
+      - KIBANA_HOST=kibana
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/templates:/etc/nginx/templates:ro
+    ports:
+      - "80:80"
+    networks:
+      - elk
+    depends_on:
+      - kibana
+
 networks:
   elk:
     driver: bridge
